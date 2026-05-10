@@ -415,6 +415,72 @@
       letter-spacing: 0.02em;
     }
 
+    /* ── ANIMATIONS ── */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(44px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(50px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-50px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-14px); }
+    }
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+
+    /* Hero — anima al cargar */
+    .hero-text .pill     { animation: fadeInUp 0.65s cubic-bezier(.22,.68,0,1.2) both; animation-delay: 0.05s; }
+    .hero-text h1        { animation: fadeInUp 0.7s  cubic-bezier(.22,.68,0,1.2) both; animation-delay: 0.2s; }
+    .hero-text .hero-sub { animation: fadeInUp 0.7s  ease both; animation-delay: 0.38s; }
+    .hero-text .hero-actions { animation: fadeInUp 0.7s ease both; animation-delay: 0.52s; }
+    .hero-image          { animation: fadeInRight 0.9s cubic-bezier(.22,.68,0,1.2) both; animation-delay: 0.25s; }
+    .hero-img-frame      { animation: float 7s ease-in-out infinite; }
+
+    /* Scroll reveal */
+    .rev {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .rev-l {
+      opacity: 0;
+      transform: translateX(-44px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .rev-r {
+      opacity: 0;
+      transform: translateX(44px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .rev.on, .rev-l.on, .rev-r.on {
+      opacity: 1;
+      transform: translate(0);
+    }
+
+    /* Stagger para tarjetas de galería */
+    .gallery-card:nth-child(1) { transition-delay: 0s; }
+    .gallery-card:nth-child(2) { transition-delay: 0.12s; }
+    .gallery-card:nth-child(3) { transition-delay: 0.24s; }
+
+    /* Highlight dorado en el título hero al cargar */
+    .hero h1 em {
+      background: linear-gradient(90deg, var(--brown-light), var(--terracotta), var(--brown-light));
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: float 7s ease-in-out infinite, shimmer 3s linear infinite 1s;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       nav { padding: 16px 24px; }
@@ -477,25 +543,25 @@
 <!-- GALLERY -->
 <section class="gallery-section section-wrap" id="productos">
   <div class="gallery-inner">
-    <div class="gallery-header">
+    <div class="gallery-header rev">
       <p class="section-label">Mis creaciones</p>
       <h2 class="section-title">Productos</h2>
     </div>
-    <p style="text-align:center;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:36px;font-weight:700;">✦ 100% artesanal &nbsp;·&nbsp; Pintado a mano &nbsp;·&nbsp; Cada pieza es única ✦</p>
+    <p class="rev" style="text-align:center;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:36px;font-weight:700;">✦ 100% artesanal &nbsp;·&nbsp; Pintado a mano &nbsp;·&nbsp; Cada pieza es única ✦</p>
     <div class="gallery-grid">
-      <div class="gallery-card" onclick="lbOpen('assets/portallaves-conejito.jpg')">
+      <div class="gallery-card rev" onclick="lbOpen('assets/portallaves-conejito.jpg')">
         <img src="assets/portallaves-conejito.jpg" alt="Porta-llaves decorativo con conejito pintado a mano">
         <div class="gallery-card-overlay">
           <span class="gallery-card-hint">Ver en detalle</span>
         </div>
       </div>
-      <div class="gallery-card" onclick="lbOpen('assets/sarten-decorativa.jpg')">
+      <div class="gallery-card rev" onclick="lbOpen('assets/sarten-decorativa.jpg')">
         <img src="assets/sarten-decorativa.jpg" alt="Sartén decorativa pintada a mano con motivos campestres">
         <div class="gallery-card-overlay">
           <span class="gallery-card-hint">Ver en detalle</span>
         </div>
       </div>
-      <div class="gallery-card" onclick="lbOpen('assets/muneca-colgante.jpg')">
+      <div class="gallery-card rev" onclick="lbOpen('assets/muneca-colgante.jpg')">
         <img src="assets/muneca-colgante.jpg" alt="Muñeca colgante de madera pintada a mano">
         <div class="gallery-card-overlay">
           <span class="gallery-card-hint">Ver en detalle</span>
@@ -516,13 +582,13 @@
 <!-- ABOUT -->
 <section class="about-section section-wrap" id="sobre-mi">
   <div class="about-inner">
-    <div class="about-img-wrap">
+    <div class="about-img-wrap rev-l">
       <div class="about-img">
         <img src="assets/marta.jpg" alt="Marta, artesana">
       </div>
       <div class="about-accent">🌿</div>
     </div>
-    <div class="about-content">
+    <div class="about-content rev-r">
       <p class="section-label">Quién soy</p>
       <h2 class="section-title">Hola,<br>soy Marta</h2>
       <div class="about-rule"></div>
@@ -537,7 +603,7 @@
 
 <!-- CONTACT -->
 <section class="contact-section" id="contacto">
-  <div class="contact-inner">
+  <div class="contact-inner rev">
     <p class="section-label">¿Te gustó algo?</p>
     <h2 class="section-title">Pedí el tuyo</h2>
     <p>Escribime por WhatsApp y con gusto te cuento sobre disponibilidad, precios y encargos personalizados.</p>
@@ -556,6 +622,19 @@
 </footer>
 
 <script>
+  // Scroll reveal
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('on');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.rev, .rev-l, .rev-r').forEach(function(el) {
+    observer.observe(el);
+  });
+
   function lbOpen(src) {
     document.getElementById('lb-img').src = src;
     document.getElementById('lb').classList.add('open');
