@@ -595,12 +595,12 @@
       background: linear-gradient(to right, transparent, rgba(122,82,50,0.3), transparent);
     }
     .masonry-grid-full {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      align-items: start;
+      columns: 3;
+      column-gap: 20px;
     }
     .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 20px;
       cursor: pointer;
       overflow: hidden;
       position: relative;
@@ -616,13 +616,12 @@
     .masonry-item img {
       width: 100%;
       display: block;
-      object-fit: cover;
-      object-position: center;
       transition: transform 0.5s cubic-bezier(.34,1.1,.64,1);
     }
     .masonry-item:hover img { transform: scale(1.04); }
     @media (max-width: 900px) {
-      .masonry-grid-full { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .masonry-grid-full { columns: 2; column-gap: 12px; }
+      .masonry-item { margin-bottom: 12px; }
     }
 
     /* ── LIGHTBOX NAV ── */
