@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Artesanías Marta — Decoraciones pintadas a mano</title>
+  <title>Artesanías Emilia — Decoraciones pintadas a mano</title>
   <meta name="description" content="Piezas decorativas únicas, pintadas a mano con amor y detalle. Contactanos por WhatsApp.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -596,20 +596,21 @@
     .masonry-section { margin-top: 60px; }
     .masonry-label {
       font-family: 'Caveat', cursive;
-      font-size: 17px;
-      color: rgba(240,230,210,0.35);
-      letter-spacing: 0.2em;
+      font-size: 19px;
+      color: rgba(240,230,210,0.45);
+      letter-spacing: 0.25em;
       text-align: center;
-      padding: 40px 0;
+      padding: 48px 0 44px;
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 24px;
+      text-transform: uppercase;
     }
     .masonry-label::before, .masonry-label::after {
       content: '';
       flex: 1;
       height: 1px;
-      background: rgba(240,230,210,0.1);
+      background: linear-gradient(to right, transparent, rgba(184,74,24,0.25), transparent);
     }
     .masonry-grid-full { columns: 4; column-gap: 10px; }
     .masonry-item {
@@ -617,14 +618,25 @@
       margin-bottom: 10px;
       cursor: pointer;
       overflow: hidden;
+      position: relative;
     }
+    .masonry-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(184,74,24,0.18) 0%, transparent 55%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      pointer-events: none;
+    }
+    .masonry-item:hover::after { opacity: 1; }
     .masonry-item img {
       width: 100%;
       display: block;
-      transition: transform 0.4s ease, opacity 0.3s;
-      opacity: 0.88;
+      transition: transform 0.55s cubic-bezier(.34,1.1,.64,1), opacity 0.35s;
+      opacity: 0.82;
     }
-    .masonry-item:hover img { transform: scale(1.04); opacity: 1; }
+    .masonry-item:hover img { transform: scale(1.06); opacity: 1; }
     @media (max-width: 900px) { .masonry-grid-full { columns: 2; } }
     @media (max-width: 500px) {
       .masonry-grid-full { columns: 2; column-gap: 6px; }
@@ -670,7 +682,7 @@
 
 <!-- NAV -->
 <nav>
-  <span class="nav-brand">Artesanías Marta</span>
+  <span class="nav-brand">Artesanías Emilia</span>
   <a href="#contacto" class="nav-cta">Escribirme →</a>
 </nav>
 
@@ -694,7 +706,7 @@
     <p class="hero-sub">Piezas decorativas únicas, pintadas a mano con dedicación y detalle. Cada creación es irrepetible.</p>
     <div class="hero-actions">
       <a href="#productos" class="btn-main">Ver creaciones</a>
-      <a href="#sobre-mi" class="btn-ghost">Conocer a Marta →</a>
+      <a href="#sobre-mi" class="btn-ghost">Conocer a Emilia →</a>
     </div>
   </div>
   <div class="hero-right">
@@ -820,12 +832,12 @@
 <section class="about-section" id="sobre-mi">
   <div class="about-inner">
     <div class="about-photo rev-l">
-      <img src="assets/marta.jpg" alt="Marta, artesana">
+      <img src="assets/marta.jpg" alt="Emilia, artesana">
       <div class="about-photo-tag">Esa soy yo ✦</div>
     </div>
     <div class="about-content rev-r">
       <p class="about-kicker">✦ Quién soy</p>
-      <h2>Hola,<br>soy <em>Marta</em></h2>
+      <h2>Hola,<br>soy <em>Emilia</em></h2>
       <div class="about-rule"></div>
       <p>Hace doce años un accidente de tráfico me cambió la vida. El golpe me dejó con daño severo en ambos brazos — los nervios, me dijeron los médicos. Pasé más de un año sin poder mover bien las manos. <strong>Escribir, agarrar un vaso, abocharme los botones: todo se volvió una batalla.</strong></p>
       <p>En esos meses en cama, mi hija Jeni me puso un pincel entre los dedos del pie como broma. Nos reímos las dos. Pero esa noche, cuando ella ya dormía, lo volví a agarrar. <strong>Y pinté un conejito pequeño en un pedazo de madera que encontré en el piso del cuarto.</strong></p>
@@ -851,7 +863,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 Artesanías Marta &nbsp;✦&nbsp; Hecho con amor</p>
+  <p>© 2026 Artesanías Emilia &nbsp;✦&nbsp; Hecho con amor</p>
 </footer>
 
 <script>
