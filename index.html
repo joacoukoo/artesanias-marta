@@ -591,6 +591,79 @@
       .about-photo img { aspect-ratio: 4/3; }
       .contact-section { padding: 80px 24px; }
     }
+
+    /* ── MASONRY ── */
+    .masonry-section { margin-top: 60px; }
+    .masonry-label {
+      font-family: 'Caveat', cursive;
+      font-size: 17px;
+      color: rgba(240,230,210,0.35);
+      letter-spacing: 0.2em;
+      text-align: center;
+      padding: 40px 0;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .masonry-label::before, .masonry-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(240,230,210,0.1);
+    }
+    .masonry-grid-full { columns: 4; column-gap: 10px; }
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 10px;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    .masonry-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.4s ease, opacity 0.3s;
+      opacity: 0.88;
+    }
+    .masonry-item:hover img { transform: scale(1.04); opacity: 1; }
+    @media (max-width: 900px) { .masonry-grid-full { columns: 2; } }
+    @media (max-width: 500px) {
+      .masonry-grid-full { columns: 2; column-gap: 6px; }
+      .masonry-item { margin-bottom: 6px; }
+    }
+
+    /* ── LIGHTBOX NAV ── */
+    .lb-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.7);
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      font-size: 28px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      z-index: 10;
+    }
+    .lb-nav:hover { background: rgba(255,255,255,0.1); color: #fff; }
+    .lb-prev { left: 24px; }
+    .lb-next { right: 24px; }
+    .lb-counter {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Caveat', cursive;
+      font-size: 18px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.1em;
+      pointer-events: none;
+    }
+    .lb.single .lb-nav, .lb.single .lb-counter { display: none; }
   </style>
 </head>
 <body>
@@ -656,13 +729,89 @@
         <div class="polaroid-label">Muñeca colgante</div>
       </div>
     </div>
+
+    <!-- Galería completa -->
+    <div class="masonry-section">
+      <div class="masonry-label">Todas las piezas</div>
+      <div class="masonry-grid-full">
+        <div class="masonry-item" onclick="lbMasonry(0)"><img src="assets/IMG_5319.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(1)"><img src="assets/IMG_5324.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(2)"><img src="assets/IMG_5328.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(3)"><img src="assets/IMG_5332.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(4)"><img src="assets/IMG_5339.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(5)"><img src="assets/IMG_5356.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(6)"><img src="assets/IMG_5359.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(7)"><img src="assets/IMG_5365.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(8)"><img src="assets/IMG_5379.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(9)"><img src="assets/IMG_5382.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(10)"><img src="assets/IMG_5384.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(11)"><img src="assets/IMG_5387.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(12)"><img src="assets/IMG_5390.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(13)"><img src="assets/IMG_5392.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(14)"><img src="assets/IMG_5398.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(15)"><img src="assets/IMG_5402.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(16)"><img src="assets/IMG_5403.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(17)"><img src="assets/IMG_5405.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(18)"><img src="assets/IMG_5407.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(19)"><img src="assets/IMG_5410.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(20)"><img src="assets/IMG_5411.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(21)"><img src="assets/IMG_5413.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(22)"><img src="assets/IMG_5415.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(23)"><img src="assets/IMG_5420.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(24)"><img src="assets/IMG_5424.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(25)"><img src="assets/IMG_5426.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(26)"><img src="assets/IMG_5429.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(27)"><img src="assets/IMG_5432.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(28)"><img src="assets/IMG_5436.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(29)"><img src="assets/IMG_5441.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(30)"><img src="assets/IMG_5446.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(31)"><img src="assets/IMG_5450.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(32)"><img src="assets/IMG_5459.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(33)"><img src="assets/IMG_5464.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(34)"><img src="assets/IMG_5466.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(35)"><img src="assets/IMG_5487.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(36)"><img src="assets/IMG_5491.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(37)"><img src="assets/IMG_5524.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(38)"><img src="assets/IMG_5531.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(39)"><img src="assets/IMG_5535.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(40)"><img src="assets/IMG_5543.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(41)"><img src="assets/IMG_5548.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(42)"><img src="assets/IMG_5552.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(43)"><img src="assets/IMG_5556.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(44)"><img src="assets/IMG_5559.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(45)"><img src="assets/IMG_5563.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(46)"><img src="assets/IMG_5567.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(47)"><img src="assets/IMG_5571.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(48)"><img src="assets/IMG_5593.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(49)"><img src="assets/IMG_5607.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(50)"><img src="assets/IMG_5615.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(51)"><img src="assets/IMG_5621.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(52)"><img src="assets/IMG_5625.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(53)"><img src="assets/IMG_5637.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(54)"><img src="assets/IMG_5650.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(55)"><img src="assets/IMG_5659.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(56)"><img src="assets/IMG_5673.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(57)"><img src="assets/IMG_5679.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(58)"><img src="assets/IMG_5682.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(59)"><img src="assets/IMG_5688.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(60)"><img src="assets/IMG_5693.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(61)"><img src="assets/IMG_5704.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(62)"><img src="assets/IMG_5707.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(63)"><img src="assets/IMG_5714.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(64)"><img src="assets/IMG_5718.JPG" alt="Artesanía" loading="lazy"></div>
+        <div class="masonry-item" onclick="lbMasonry(65)"><img src="assets/IMG_5722.JPG" alt="Artesanía" loading="lazy"></div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- LIGHTBOX -->
-<div class="lb" id="lb" onclick="lbClose()">
+<div class="lb single" id="lb" onclick="lbClose()">
   <button class="lb-close" onclick="lbClose()" aria-label="Cerrar">&times;</button>
+  <button class="lb-nav lb-prev" onclick="event.stopPropagation(); lbNav(-1)" aria-label="Anterior">&#8249;</button>
   <img class="lb-img" id="lb-img" src="" alt="" onclick="event.stopPropagation()">
+  <button class="lb-nav lb-next" onclick="event.stopPropagation(); lbNav(1)" aria-label="Siguiente">&#8250;</button>
+  <div class="lb-counter" id="lb-counter"></div>
 </div>
 
 <div class="ornament" style="background:var(--parchment2); margin:0;">✦ &nbsp; ✦ &nbsp; ✦</div>
@@ -715,16 +864,60 @@
   document.querySelectorAll('.rev, .rev-l, .rev-r').forEach(function(el) { obs.observe(el); });
 
   // Lightbox
+  var lbImages = [];
+  var lbCurrent = 0;
+  var masonryImages = [
+    'assets/IMG_5319.JPG','assets/IMG_5324.JPG','assets/IMG_5328.JPG','assets/IMG_5332.JPG',
+    'assets/IMG_5339.JPG','assets/IMG_5356.JPG','assets/IMG_5359.JPG','assets/IMG_5365.JPG',
+    'assets/IMG_5379.JPG','assets/IMG_5382.JPG','assets/IMG_5384.JPG','assets/IMG_5387.JPG',
+    'assets/IMG_5390.JPG','assets/IMG_5392.JPG','assets/IMG_5398.JPG','assets/IMG_5402.JPG',
+    'assets/IMG_5403.JPG','assets/IMG_5405.JPG','assets/IMG_5407.JPG','assets/IMG_5410.JPG',
+    'assets/IMG_5411.JPG','assets/IMG_5413.JPG','assets/IMG_5415.JPG','assets/IMG_5420.JPG',
+    'assets/IMG_5424.JPG','assets/IMG_5426.JPG','assets/IMG_5429.JPG','assets/IMG_5432.JPG',
+    'assets/IMG_5436.JPG','assets/IMG_5441.JPG','assets/IMG_5446.JPG','assets/IMG_5450.JPG',
+    'assets/IMG_5459.JPG','assets/IMG_5464.JPG','assets/IMG_5466.JPG','assets/IMG_5487.JPG',
+    'assets/IMG_5491.JPG','assets/IMG_5524.JPG','assets/IMG_5531.JPG','assets/IMG_5535.JPG',
+    'assets/IMG_5543.JPG','assets/IMG_5548.JPG','assets/IMG_5552.JPG','assets/IMG_5556.JPG',
+    'assets/IMG_5559.JPG','assets/IMG_5563.JPG','assets/IMG_5567.JPG','assets/IMG_5571.JPG',
+    'assets/IMG_5593.JPG','assets/IMG_5607.JPG','assets/IMG_5615.JPG','assets/IMG_5621.JPG',
+    'assets/IMG_5625.JPG','assets/IMG_5637.JPG','assets/IMG_5650.JPG','assets/IMG_5659.JPG',
+    'assets/IMG_5673.JPG','assets/IMG_5679.JPG','assets/IMG_5682.JPG','assets/IMG_5688.JPG',
+    'assets/IMG_5693.JPG','assets/IMG_5704.JPG','assets/IMG_5707.JPG','assets/IMG_5714.JPG',
+    'assets/IMG_5718.JPG','assets/IMG_5722.JPG'
+  ];
+
   function lbOpen(src) {
+    lbImages = [src];
+    lbCurrent = 0;
+    document.getElementById('lb').classList.add('single');
     document.getElementById('lb-img').src = src;
+    document.getElementById('lb-counter').textContent = '';
     document.getElementById('lb').classList.add('open');
     document.body.style.overflow = 'hidden';
+  }
+  function lbMasonry(idx) {
+    lbImages = masonryImages;
+    lbCurrent = idx;
+    document.getElementById('lb').classList.remove('single');
+    document.getElementById('lb-img').src = lbImages[lbCurrent];
+    document.getElementById('lb-counter').textContent = (lbCurrent + 1) + ' / ' + lbImages.length;
+    document.getElementById('lb').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function lbNav(dir) {
+    lbCurrent = (lbCurrent + dir + lbImages.length) % lbImages.length;
+    document.getElementById('lb-img').src = lbImages[lbCurrent];
+    document.getElementById('lb-counter').textContent = (lbCurrent + 1) + ' / ' + lbImages.length;
   }
   function lbClose() {
     document.getElementById('lb').classList.remove('open');
     document.body.style.overflow = '';
   }
-  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') lbClose(); });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') lbClose();
+    if (e.key === 'ArrowRight') lbNav(1);
+    if (e.key === 'ArrowLeft') lbNav(-1);
+  });
 </script>
 
 </body>
